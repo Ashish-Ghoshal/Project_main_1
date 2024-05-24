@@ -14,27 +14,16 @@ import pandas as pd
 wines = pd.read_csv("winequality-red.csv")
 wines.head()
 
-wines.info()
 
-wines.describe()
-
-wines.isnull().sum()
-
-import matplotlib.pyplot as plt
-
-wines.hist(bins=50, figsize=(20,15), color = "orange")
-plt.show()
 
 from sklearn.model_selection import train_test_split
 
-wines.head()
 
 X = wines.drop(['quality'], axis=1)
 y = wines['quality']
 
-X.head()
 
-y
+
 
 X_train, X_test, y_train, y_test = train_test_split(X,y, test_size=0.2, random_state=42)
 
@@ -56,7 +45,6 @@ def eval_metrics(actual, pred):
 
 predicted_value = lr.predict(X_test)
 
-predicted_value
 
 (rmse, mae, r2) = eval_metrics(y_test, predicted_value)
 
